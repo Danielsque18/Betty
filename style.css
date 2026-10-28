@@ -265,3 +265,28 @@ svg{width:20px;height:20px;flex:none}
   .rating{font-size:13px;padding:6px 12px 6px 10px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero-v{opacity:1}}
+
+/* правки по ответам Анны: экспресс-линька, что входит, правила, о мастере */
+.card-hot{position:relative;border-color:rgba(255,45,143,.45);box-shadow:0 0 0 1px rgba(255,45,143,.15),0 20px 40px -24px rgba(255,45,143,.5)}
+.hot{position:absolute;top:18px;right:18px;background:var(--pink);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.02em}
+.incl{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:18px;margin-top:22px;align-items:stretch}
+.incl>div{background:linear-gradient(180deg,var(--surf),var(--bg2));border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.incl h3{font-size:18px;margin-bottom:10px}
+.incl p{color:var(--muted);font-size:15.5px}
+.incl-n{margin-top:12px}
+.incl-n b{color:var(--text);font-weight:600}
+.incl .price-note{margin:0;display:flex;align-items:center}
+.anna{display:inline-flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:-12px 0 26px;padding:10px 16px;border-radius:999px;background:rgba(255,45,143,.1);border:1px solid rgba(255,45,143,.35)}
+.anna b{font:600 16px var(--h);color:var(--pink)}
+.anna span{color:var(--muted);font-size:15px}
+.rules{background:var(--bg2);border-block:1px solid var(--line)}
+.rules-in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.rules h2{font-size:clamp(28px,3.4vw,44px);margin-bottom:16px}
+.rules-lead{color:var(--muted)}
+.rules-l{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:r}
+.rules-l li{counter-increment:r;position:relative;padding:16px 18px 16px 58px;background:var(--surf);border:1px solid var(--line);border-radius:16px;font-size:15.5px;color:#d6e8ed}
+.rules-l li::before{content:"!";position:absolute;left:18px;top:14px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;color:#fff;background:var(--pink)}
+.rules-l li:first-child{border-color:rgba(255,45,143,.45)}
+@media (max-width:1060px){.incl,.rules-in{grid-template-columns:minmax(0,1fr);gap:22px}}
+@media (max-width:640px){.incl>div{padding:22px}.rules-l li{padding:14px 14px 14px 52px;font-size:15px}.rules-l li::before{left:14px}.anna{margin-top:-6px}}
+@media (max-width:640px){.card-hot h3{padding-right:92px}.hot{top:16px;right:14px}}
