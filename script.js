@@ -27,6 +27,42 @@
     b.addEventListener('click', function () { var t = $('#revs'); t.scrollBy({ left: (+b.dataset.d) * Math.min(400, t.clientWidth * .85), behavior: 'smooth' }); });
   });
 
+  /* прайс: вкладки + поиск по породе */
+  (function () {
+    var P = window.BETTY_PRICES; if (!P) return;
+    var L = { k: 'Комплекс', pm: 'Под машинку', g: 'Гигиена', ms: 'Мойка и сушка', el: 'Экспресс-линька', v: 'Вычёсывание', s: 'Декоративные', c: 'Кошки', mid: 'Средние', big: 'Крупные' };
+    var SHORT = { k: 'К', pm: 'ПМ', g: 'Г', ms: 'МС', el: 'ЭЛ' };
+    var tabs = $('#ptabs'), list = $('#plist'), leg = $('#plegend'), q = $('#psearch'), cur = 'small';
+    var keys = Object.keys(P);
+    tabs.innerHTML = keys.map(function (k) { return '<button type="button" role="tab" data-t="' + k + '">' + esc(P[k].title) + '</button>'; }).join('');
+    function cell(k, v) { return '<span class="pc"><i' + (SHORT[k] ? ' class="ab"' : '') + '>' + (SHORT[k] || L[k]) + '</i><b>' + esc(v[0]) + '</b>' + (v[1] ? '<small>' + esc(v[1]) + '</small>' : '') + '</span>'; }
+    function row(r, sec) { return '<div class="pr"><div class="pn">' + esc(r[0]) + (sec ? '<em>' + esc(sec) + '</em>' : '') + '</div><div class="pv">' + Object.keys(r[1]).map(function (k) { return cell(k, r[1][k]); }).join('') + '</div></div>'; }
+    function draw() {
+      var term = q.value.trim().toLowerCase().replace(/ё/g, 'е'), html = '';
+      tabs.querySelectorAll('button').forEach(function (b) { var on = !term && b.dataset.t === cur; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); });
+      if (term) {
+        var t2 = /^ко[тш]/.test(term) ? 'кошки' : term;   // «кот», «кошка» → раздел «Кошки»
+        keys.forEach(function (k) {
+          var inTitle = P[k].title.toLowerCase().indexOf(t2) >= 0;
+          P[k].rows.forEach(function (r) { if (inTitle || r[0].toLowerCase().replace(/ё/g, 'е').indexOf(term) >= 0) html += row(r, P[k].title); });
+        });
+        leg.innerHTML = '';
+        list.innerHTML = html || '<p class="pempty">Такой породы нет в прайсе — позвоните или напишите, назовём цену.</p>';
+        return;
+      }
+      var S = P[cur], used = {};
+      S.rows.forEach(function (r) { Object.keys(r[1]).forEach(function (k) { if (SHORT[k]) used[k] = 1; }); });
+      leg.innerHTML = Object.keys(used).map(function (k) { return '<span><i class="ab">' + SHORT[k] + '</i>' + L[k] + '</span>'; }).join('') +
+        (cur === 'small' ? '<span>м · с · к — по размеру, как в прайсе</span>' : '');
+      if (S.weight) html += '<div class="pweight"><b>Комплексная стрижка полностью под машинку</b><div>' + S.weight.map(function (w) { return '<span><small>' + w[0] + '</small>' + w[1] + '</span>'; }).join('') + '</div></div>';
+      if (S.note) html += '<p class="pnote">' + esc(S.note) + '</p>';
+      list.innerHTML = html + S.rows.map(function (r) { return row(r); }).join('');
+    }
+    tabs.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) { cur = b.dataset.t; q.value = ''; draw(); } });
+    q.addEventListener('input', draw);
+    draw();
+  })();
+
   /* работы: фильтр собаки / кошки */
   document.querySelectorAll('.chip').forEach(function (c) {
     c.addEventListener('click', function () {

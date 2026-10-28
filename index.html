@@ -14,7 +14,7 @@
 <meta name="theme-color" content="#06161b">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=20261029b">
+<link rel="stylesheet" href="style.css?v=20261029c">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"PetStore","name":"Зоосалон «Бетти»","description":"Груминг собак и кошек","address":{"@type":"PostalAddress","streetAddress":"ул. Генерала Попова, 2","addressLocality":"Калуга","addressCountry":"RU"},"telephone":"+7 910 593-22-82","openingHours":"Mo-Su 10:00-20:00","geo":{"@type":"GeoCoordinates","latitude":54.492891,"longitude":36.220765},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","ratingCount":"90"},"sameAs":["https://vk.com/zoosalonbetty40"]}</script>
 </head>
 <body>
@@ -27,6 +27,7 @@
   <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9L12 2.8Z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-5-5 5 5-5 5"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 5h16v11H9l-5 4V5Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="m20 20-4.2-4.2M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="s-scissors" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="9" r="4"/><circle cx="8" cy="23" r="4"/><path d="M11.5 11 27 24M11.5 21 27 8"/></g></symbol>
   <symbol id="s-comb" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h24v5H4z"/><path d="M7 15v8M11 15v8M15 15v8M19 15v8M23 15v8M27 15v8"/></g></symbol>
@@ -43,6 +44,7 @@
     <a href="#" class="brand" aria-label="Зоосалон «Бетти» — наверх"><img src="img/logo.png" alt="" width="370" height="610"><span><b>Бетти</b><small>зоосалон · Калуга</small></span></a>
     <nav class="nav" id="nav">
       <a href="#services">Услуги</a>
+      <a href="#prices">Цены</a>
       <a href="#works">Работы</a>
       <a href="#why">О салоне</a>
       <a href="#reviews">Отзывы</a>
@@ -104,8 +106,21 @@
       <div><h3>Что входит в комплексный груминг</h3>
         <p>Мытьё очищающим шампунем; шампунь по типу шерсти; увлажняющий кондиционер; сушка, стрижка когтей; чистка ушного канала; стрижка/гигиенический уход/экспресс-линька (в зависимости от породы) выполненные по вашим пожеланиям или в соответствии со стандартом породы.</p>
         <p class="incl-n">Груминг выполняется профессиональными инструментами и с применением премиальной косметики по типу шерсти. <b>В подарок к комплексу — парфюмирование вашего питомца.</b></p></div>
-      <p class="price-note">Стоимость зависит от породы, веса и состояния шерсти — точную цену назовём, когда расскажете о питомце. Расчёсывание колтунов оплачивается отдельно.</p>
+      <a class="price-note" href="#prices">Цены по породам — в прейскуранте ниже, найдите свою породу поиском. Расчёсывание колтунов оплачивается отдельно. →</a>
     </div>
+  </div>
+</section>
+
+<!-- ЦЕНЫ: прейскурант «Топ-грумер Анна» (prices.js) -->
+<section class="sec prices" id="prices">
+  <div class="wrap">
+    <div class="sec-h sec-h-row"><div><p class="over">Цены</p><h2>Прейскурант топ-грумера Анны</h2></div>
+      <label class="psearch"><svg><use href="#i-search"/></svg><input type="search" id="psearch" placeholder="Найдите породу: шпиц, мопс, хаски…" aria-label="Поиск породы в прайсе"></label>
+    </div>
+    <div class="ptabs" id="ptabs" role="tablist" aria-label="Разделы прайса"></div>
+    <div class="plegend" id="plegend"></div>
+    <div class="plist" id="plist"></div>
+    <p class="pfoot">Все цены — за комплексный груминг, если не указано другое. При сильной спутанности шерсти стоимость может быть увеличена (от 300 ₽ в зависимости от породы) — мастер предупредит перед процедурой. Цены на груминг-услуги могут быть увеличены в процессе на 10–30% на усмотрение мастера в зависимости от запущенности шерсти, обнаружения паразитов и т.п.</p>
   </div>
 </section>
 
@@ -156,6 +171,15 @@
         <li class="rv"><b>Удобно добираться</b><p>Вход с улицы, парковка на территории. Оплата любая.</p></li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- ИЩЕМ МАСТЕРОВ -->
+<section class="sec hire">
+  <div class="wrap hire-in rv">
+    <div><p class="over">Вакансия</p><h2>Грумер в&nbsp;зоосалон</h2>
+      <p>Ищем мастера-грумера в команду зоосалона «Бетти» в Калуге. Работа с кошками и собаками, профессиональные инструменты и премиальная косметика, постоянные клиенты. Условия — в вакансии на Авито.</p></div>
+    <div class="hire-btns"><a href="https://www.avito.ru/kaluga/vakansii/grumer_v_zoosalon_3840248156" target="_blank" rel="noopener" class="btn btn-pink">Вакансия на Авито<svg><use href="#i-arrow"/></svg></a><a href="tel:+79105932282" class="btn btn-glass"><svg><use href="#i-phone"/></svg>Позвонить Анне</a><small>или в MAX по номеру 8 (910) 593-22-82</small></div>
   </div>
 </section>
 
@@ -231,6 +255,7 @@
 <div class="lb" id="lb" hidden><button type="button" class="lb-x" aria-label="Закрыть"><svg><use href="#i-x"/></svg></button><img alt=""></div>
 <a href="tel:+79105932282" class="fab"><svg><use href="#i-phone"/></svg>Позвонить и записаться</a>
 
-<script src="script.js?v=20261028c"></script>
+<script src="prices.js?v=20261029a"></script>
+<script src="script.js?v=20261029b"></script>
 </body>
 </html>
