@@ -331,3 +331,17 @@ a.price-note:hover{border-color:var(--pink);color:var(--text)}
 .hire-btns small{color:var(--muted);font-size:14px;text-align:center}
 @media (max-width:1060px){.hire-in{grid-template-columns:minmax(0,1fr)}.pweight div{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:640px){.pr{grid-template-columns:minmax(0,1fr);gap:8px;padding:14px}.pweight div{grid-template-columns:repeat(2,minmax(0,1fr))}.hire-in{padding:26px 20px}.psearch{width:100%}}
+/* вакансия — полный текст */
+.hire-in{align-items:start}
+.hire-lead{font-size:17px;max-width:720px}
+.hire-money{display:inline-flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:20px 0 24px;padding:12px 18px;border-radius:16px;background:rgba(255,45,143,.12);border:1px solid rgba(255,45,143,.4)}
+.hire-money b{font:600 clamp(24px,2.6vw,32px)/1 var(--h);color:var(--pink)}
+.hire-money span{color:var(--muted);font-size:15px}
+.hire-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.hire-cols h3{font-size:16px;margin-bottom:10px}
+.hire-cols ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.hire-cols li{position:relative;padding-left:18px;color:var(--muted);font-size:15px;line-height:1.45}
+.hire-cols li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--pink)}
+.hire-btns p{color:var(--muted);font-size:15px;margin-bottom:4px}
+@media (max-width:1060px){.hire-cols{grid-template-columns:minmax(0,1fr)}}
+.hire-btns{min-width:0}.hire-btns .btn{white-space:normal;text-align:center;line-height:1.25;padding-top:10px;padding-bottom:10px}

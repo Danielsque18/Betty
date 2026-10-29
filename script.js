@@ -53,7 +53,7 @@
       var S = P[cur], used = {};
       S.rows.forEach(function (r) { Object.keys(r[1]).forEach(function (k) { if (SHORT[k]) used[k] = 1; }); });
       leg.innerHTML = Object.keys(used).map(function (k) { return '<span><i class="ab">' + SHORT[k] + '</i>' + L[k] + '</span>'; }).join('') +
-        (cur === 'small' ? '<span>м · с · к — по размеру, как в прайсе</span>' : '');
+        (cur === 'small' ? '<span>йорки: мини · стандарт · крупный (крупнее стандарта породы)</span>' : '');
       if (S.weight) html += '<div class="pweight"><b>Комплексная стрижка полностью под машинку</b><div>' + S.weight.map(function (w) { return '<span><small>' + w[0] + '</small>' + w[1] + '</span>'; }).join('') + '</div></div>';
       if (S.note) html += '<p class="pnote">' + esc(S.note) + '</p>';
       list.innerHTML = html + S.rows.map(function (r) { return row(r); }).join('');
