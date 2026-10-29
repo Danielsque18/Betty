@@ -111,7 +111,8 @@ svg{width:20px;height:20px;flex:none}
 .chips{display:flex;gap:6px;background:var(--surf);border:1px solid var(--line);padding:5px;border-radius:999px}
 .chip{border:0;background:none;border-radius:999px;padding:9px 18px;font-weight:600;font-size:15px;cursor:pointer;color:var(--muted);min-height:42px;transition:background .25s,color .25s}
 .chip.on{background:var(--pink);color:#fff;box-shadow:0 6px 18px -6px rgba(255,45,143,.7)}
-.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:230px;grid-auto-flow:dense;gap:16px}
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.g{aspect-ratio:4/5;width:100%}
 .g{position:relative;border:0;padding:0;margin:0;border-radius:var(--r);overflow:hidden;cursor:zoom-in;background:var(--surf)}
 .g::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .3s}
 .g:hover::after{box-shadow:inset 0 0 0 2px var(--pink)}
@@ -203,7 +204,7 @@ svg{width:20px;height:20px;flex:none}
   .top.open .burger span::after{opacity:0}
   .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
   .band-in{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .gal{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .gal{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
   .why-in,.ct{grid-template-columns:minmax(0,1fr);gap:40px}
   .why-pic{max-width:460px}
   .steps{grid-template-columns:minmax(0,1fr)}
@@ -245,7 +246,7 @@ svg{width:20px;height:20px;flex:none}
   .fact{padding:18px 16px}
   .fact b{font-size:32px}
   .fact span{font-size:13.5px}
-  .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px;gap:10px}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .chips{width:100%}
   .chip{flex:1;padding:9px 8px}
   .rev-score{width:100%}
@@ -345,3 +346,8 @@ a.price-note:hover{border-color:var(--pink);color:var(--text)}
 .hire-btns p{color:var(--muted);font-size:15px;margin-bottom:4px}
 @media (max-width:1060px){.hire-cols{grid-template-columns:minmax(0,1fr)}}
 .hire-btns{min-width:0}.hire-btns .btn{white-space:normal;text-align:center;line-height:1.25;padding-top:10px;padding-bottom:10px}
+.card-cta{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;border-color:rgba(255,45,143,.45);background:linear-gradient(160deg,rgba(255,45,143,.14),var(--bg2))}
+.card-cta .btn{margin-top:6px}
+@media (max-width:640px){.card.card-cta{display:flex}}
+.card-wide{grid-column:span 2}
+@media (max-width:640px){.card-wide{grid-column:auto}}
