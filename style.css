@@ -351,3 +351,6 @@ a.price-note:hover{border-color:var(--pink);color:var(--text)}
 @media (max-width:640px){.card.card-cta{display:flex}}
 .card-wide{grid-column:span 2}
 @media (max-width:640px){.card-wide{grid-column:auto}}
+.gal:not(.all) .g-more{display:none}
+.gal-more{display:flex;justify-content:center;margin-top:28px}
+.gal.all+.gal-more{display:none}

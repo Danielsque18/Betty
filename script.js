@@ -68,8 +68,12 @@
     c.addEventListener('click', function () {
       document.querySelectorAll('.chip').forEach(function (x) { x.classList.toggle('on', x === c); x.setAttribute('aria-selected', x === c); });
       document.querySelectorAll('.g').forEach(function (g) { g.classList.toggle('out', c.dataset.f !== 'all' && g.dataset.k !== c.dataset.f); });
+      if (c.dataset.f !== 'all') $('#gal').classList.add('all');
     });
   });
+
+  /* все работы */
+  $('#galMore').addEventListener('click', function () { $('#gal').classList.add('all'); });
 
   /* фото крупно */
   var lb = $('#lb'), lbImg = $('#lb img');
